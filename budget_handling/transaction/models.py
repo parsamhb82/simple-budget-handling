@@ -6,4 +6,4 @@ class Transaction(models.Model) :
     category = models.CharField(max_length=255)
     description = models.TextField(blan= True , null= True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-# Create your models here.
+
