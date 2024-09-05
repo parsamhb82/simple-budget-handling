@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Transaction
-from .serilizers import TransactionSerializer
+from .serilizers import CreatTransactionSerializer
 from rest_framework.views import APIView
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.response import Response
@@ -8,7 +8,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 class CreatTransaction(CreateAPIView):
     queryset = Transaction.objects.all()
-    serializer_class = TransactionSerializer
+    serializer_class = CreatTransactionSerializer
     permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
