@@ -17,6 +17,8 @@ class CreatTransaction(CreateAPIView):
         if user.userbudget + float(amount) < 0:
             return Response({'error': 'Not enough budget'}, status=status.HTTP_400_BAD_REQUEST)
         user.userbudget.budget += float(amount)
+        userbudget = user.userbudget
+        userbudget.save()
         serializer.save(user=self.request.user)
 class ViewTransactions(ListAPIView):
     queryset = Transaction.objects.all()
